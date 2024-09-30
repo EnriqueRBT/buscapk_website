@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Privacy Policy - Fred's Talking Markers</title>
+    <script>
+        (function() {
+
+            // JavaScript snippet handling Dark/Light mode switching
+
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Montserrat.css">
+<!--    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">-->
+    <link rel="stylesheet" href="assets/css/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-body clean-navbar navbar-light">
+    <div class="container"><a class="navbar-brand logo" href="#">BuscaPK</a>
+        <div class="d-flex align-items-center align-content-center align-items-md-center">
+            <div class="theme-switcher dropdown d-md-flex align-items-md-center" style="padding-right: 11px;"><a
+                    aria-expanded="false" data-bs-toggle="dropdown" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                     class="bi bi-sun-fill mb-1">
+                    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                </svg>
+            </a>
+                <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#"
+                                              data-bs-theme-value="light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                         viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
+                        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                    </svg>
+                    Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                         viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
+                        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
+                        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                    </svg>
+                    Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                         viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
+                        <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
+                    </svg>
+                    Auto</a></div>
+            </div>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
+                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="features.html">Características</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Precios</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                <!--                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
+    <main class="page faq-page">
+        <section class="clean-block clean-faq dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Privacy Notice</h2>
+                    <p>Your privacy is important to us.</p>
+                </div>
+                <div class="block-content">
+                    <div class="faq-item">
+                        <h4 class="question"><strong>Last updated: November 28, 2023</strong></h4>
+                        <div class="answer">
+                            <p style="font-size: 12px;"><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Privacy Policy for Fred's Roadtrip Storyteller</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">At Fred's Roadtrip Storyteller, accessible from https://FredsRoadtripStoryteller.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Fred's Roadtrip Storyteller and how we use it.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Fred's Roadtrip Storyteller. This policy is not applicable to any information collected offline or via channels other than this website.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Consent</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">By using our website, you hereby consent to our Privacy Policy and agree to its terms.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Information we collect</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">How we use your information</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">We use the information we collect in various ways, including to:</span><br><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Provide, operate, and maintain our website</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Improve, personalize, and expand our website</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Understand and analyze how you use our website</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Develop new products, services, features, and functionality</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Send you emails</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Find and prevent fraud</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Log Files</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Fred's Roadtrip Storyteller follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</span><br><br><br><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Advertising Partners Privacy Policies</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">You may consult this list to find the Privacy Policy for each of the advertising partners of Fred's Roadtrip Storyteller.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on Fred's Roadtrip Storyteller, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Note that Fred's Roadtrip Storyteller has no access to or control over these cookies that are used by third-party advertisers.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Third Party Privacy Policies</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Fred's Roadtrip Storyteller's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">CCPA Privacy Rights (Do Not Sell My Personal Information)</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Under the CCPA, among other rights, California consumers have the right to:</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Request that a business delete any personal data about the consumer that a business has collected.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">GDPR Data Protection Rights</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">The right to access – You have the right to request copies of your personal data. We may charge you a small fee for this service.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Children's Information</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Fred's Roadtrip Storyteller does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Changes to This Privacy Policy</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Our Privacy Policy was created with the help of the Privacy Policy Generator.</span><br><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">Accessible here: Privacy Policy</span><br><span style="color: rgb(188, 190, 196); background-color: rgb(30, 31, 34);">If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</span></p>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="question"></h4>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="question"></h4>
+                        <div class="answer">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#">Get App</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li></li>
+                        <li><a href="contact-us.html">Contact us</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li></li>
+                        <li><a href="https://github.com/realityexpander/FredsRoadtripStorytellerWebsite/discussions/1">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2023-2024 Copyright Chris Athanas</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/baguetteBox.min.js"></script>
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>
