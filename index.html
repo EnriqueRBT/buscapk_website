@@ -11,6 +11,19 @@
     <meta name="twitter:image" content="assets/img/screenshots/screen1.png">
     <link rel="icon" href="assets/img/logoold.svg" type="image/svg+xml">
     <script>
+        //script para intentar eliminar el service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(function (registrations) {
+                for (let registration of registrations) {
+                    registration.unregister();
+                }
+            }).catch(function (err) {
+                console.error('Error al desregistrar el service worker:', err);
+            });
+        }
+    </script>
+
+    <script>
         (function () {
 
             // JavaScript snippet handling Dark/Light mode switching
@@ -197,14 +210,14 @@
                 </div>
 
             </div>
-                       <div class="d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center"><a
-                            href="https://play.google.com/store/apps/details?id=es.buscapk.app"
-                            target="_blank" style="padding: 20px;">
-                        <img alt="play store" src="assets/img/stores/play-store.png"
-                             width="200"></a><a
-                            href="https://apps.apple.com/es/app/buscapk/id6502261506" target="_blank"
-                            style="padding: 20px;"><img alt="app store" src="assets/img/stores/app_store.png"
-                                                        width="200"></a></div>
+            <div class="d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center"><a
+                    href="https://play.google.com/store/apps/details?id=es.buscapk.app"
+                    target="_blank" style="padding: 20px;">
+                <img alt="play store" src="assets/img/stores/play-store.png"
+                     width="200"></a><a
+                    href="https://apps.apple.com/es/app/buscapk/id6502261506" target="_blank"
+                    style="padding: 20px;"><img alt="app store" src="assets/img/stores/app_store.png"
+                                                width="200"></a></div>
         </div>
     </section>
     <section class="clean-block features">
