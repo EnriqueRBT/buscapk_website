@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - BuscaPK Website</title>
+    <title>Inicio - BuscaPK Website</title>
     <meta property="og:image" content="assets/img/screenshots/screen2-light.png">
     <meta name="description"
-          content="Localiza los puntos kilométricos de las carreteras de España, Francia y Portugal, para Android e iOS">
+          content="Localiza los puntos kilométricos de las carreteras de España, Francia y Portugal, para Android e IOS">
     <meta name="twitter:image" content="assets/img/screenshots/screen1.png">
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
     <script>
         (function () {
 
@@ -101,7 +102,9 @@
 
 <body>
 <nav class="navbar navbar-expand-lg fixed-top bg-body clean-navbar navbar-light">
-    <div class="container"><a class="navbar-brand logo" href="#">BuscaPK</a>
+    <div class="container"><a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo.svg" height="60" alt="BuscaPK Logo">
+    </a>
         <div class="d-flex align-items-center align-content-center align-items-md-center">
             <div class="theme-switcher dropdown d-md-flex align-items-md-center" style="padding-right: 11px;"><a
                     aria-expanded="false" data-bs-toggle="dropdown" href="#">
@@ -134,27 +137,28 @@
         </div>
         <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="features.html">Características</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="pricing.html">Precios</a></li>
                 <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                <!--                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>-->
+                <li class="nav-item"><a class="nav-link" href="https://twitter.com/buscapk" target="_blank"><img
+                        alt="twitter" src="assets/img/twitter-x.svg"></a></li>
             </ul>
         </div>
     </div>
 </nav>
 <main class="page landing-page">
     <section class="clean-block clean-hero"
-             style="color: rgba(0,45,135,0.8);min-height: 450px;background: url(&quot;assets/img/tech/zgz.jpg&quot;) center / cover no-repeat;">
+             style="color: rgba(0,45,135,0.8);min-height: 450px;background: url(assets/img/tech/zgz.jpg) center / cover no-repeat;">
         <div class="text" style="padding-bottom: 36px;">
             <h1 class="display-5 fw-bold" style="margin: 8px 8px;">Ayúdanos a localizarte identificando tu punto
                 kilométrico más cercano</h1>
             <p></p>
             <p>O encuentra de forma rápida y eficaz la ubicación de un punto kilométrico</p>
             <a href="https://play.google.com/store/apps/details?id=es.buscapk.app"
-               target="_blank" style="padding: 20px;"><img src="assets/img/stores/play-store.png" width="200"></a>
+               target="_blank" style="padding: 20px;"><img alt="playstore" src="assets/img/stores/play-store.png"
+                                                           width="200"></a>
             <a href="https://apps.apple.com/es/app/buscapk/id6502261506" target="_blank"
-               style="padding: 20px;"><img src="assets/img/stores/app_store.png" width="200"></a>
+               style="padding: 20px;"><img alt="app store" src="assets/img/stores/app_store.png" width="200"></a>
         </div>
     </section>
     <section class="clean-block clean-info dark">
@@ -167,19 +171,19 @@
                 </p>
             </div>
             <div class="row align-items-start">
-                <div class="col-sm-12 col-md-6 col-lg-5 offset-md-0 offset-lg-0"><img class="w-50"
-                                                                                      src="assets/img/screenshots/screen2-light.png"
-                                                                                      width="" height=""
-                                                                                      style="margin-top: 0px;"><img
-                        class="w-50" src="assets/img/screenshots/app/06-MarkerDetails.png" width="" height=""
-                        style="padding-top: 0px;margin-top: 0px;"></div>
-                <div class="col-md-6 col-lg-6" style="padding-top: 0px;">
+                <div class="col-sm-12 col-md-6 col-lg-5 offset-md-0 offset-lg-0">
+                    <img alt="captura de pantalla" class="w-50" src="assets/img/screenshots/screen15.png"
+                         width="" height="" style="margin-top: 0;"><img alt="captura de pantalla" class="w-50"
+                                                                        src="assets/img/screenshots/screen10.png"
+                                                                        width="" height=""
+                                                                        style="padding-top: 0;margin-top: 0;"></div>
+                <div class="col-md-6 col-lg-6" style="padding-top: 0;">
                     <h3>Obtén el punto kilométrico más cercano y las coordenadas de tu ubicación</h3>
                     <div class="getting-started-info">
                         <p style="margin-bottom: 32px;">Si tienes un accidente o eres testigo de uno esta es la forma
                             más rápida de informar a los equipos de primera respuesta de tu ubicación.</p>
                     </div>
-                    <h3 style="padding-top: 0px;">Enlaces a las principales aplicaciones de navegación</h3>
+                    <h3 style="padding-top: 0;">Enlaces a las principales aplicaciones de navegación</h3>
                     <div class="getting-started-info">
                         <p style="margin-bottom: 32px;">Busca un punto kilométrico y obtén enlaces a las principales
                             aplicaciones de navegación.</p>
@@ -192,10 +196,12 @@
 
                     <div class="d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center"><a
                             href="https://play.google.com/store/apps/details?id=es.buscapk.app"
-                            target="_blank" style="padding: 20px;"><img src="assets/img/stores/play-store.png"
-                                                                        width="200"></a><a
+                            target="_blank" style="padding: 20px;">
+                        <img alt="play store" src="assets/img/stores/play-store.png"
+                             width="200"></a><a
                             href="https://apps.apple.com/es/app/buscapk/id6502261506" target="_blank"
-                            style="padding: 20px;"><img src="assets/img/stores/app_store.png" width="200"></a></div>
+                            style="padding: 20px;"><img alt="app store" src="assets/img/stores/app_store.png"
+                                                        width="200"></a></div>
                 </div>
             </div>
         </div>
@@ -252,21 +258,21 @@
                  data-bs-theme="dark">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div><img class="w-25" src="assets/img/screenshots/app/01-MainScreen.png" alt="Slide Image"><img
-                                class="w-25" src="assets/img/screenshots/app/02-DrawerWithTrial.png"
+                        <div><img class="w-25" src="assets/img/screenshots/screen1.png" alt="Slide Image"><img
+                                class="w-25" src="assets/img/screenshots/screen9.png"
                                 alt="Slide Image"><img class="w-25"
-                                                       src="assets/img/screenshots/app/02L-MainScreen-50.png"
+                                                       src="assets/img/screenshots/screen7.png"
                                                        alt="Slide Image"><img class="w-25"
-                                                                              src="assets/img/screenshots/app/03-SearchWithKeybd.png"
+                                                                              src="assets/img/screenshots/screen2.png"
                                                                               alt="Slide Image"></div>
                     </div>
                     <div class="carousel-item">
-                        <div><img class="w-25" src="assets/img/screenshots/app/05-Settings.png" alt="Slide Image"><img
-                                class="w-25" src="assets/img/screenshots/app/06-MarkerDetails.png"
+                        <div><img class="w-25" src="assets/img/screenshots/screen4.png" alt="Slide Image"><img
+                                class="w-25" src="assets/img/screenshots/screen13.png"
                                 alt="Slide Image"><img class="w-25"
-                                                       src="assets/img/screenshots/app/07-MarkerDetailsZoomPhoto.png"
+                                                       src="assets/img/screenshots/screen12.png"
                                                        alt="Slide Image"><img class="w-25"
-                                                                              src="assets/img/screenshots/app/09-FullMapHeatMap.png"
+                                                                              src="assets/img/screenshots/screen8.png"
                                                                               alt="Slide Image"></div>
                     </div>
                 </div>
@@ -283,70 +289,69 @@
                     <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button>
                 </div>
             </div>
-            <footer class="d-flex justify-content-center p-3"><a
+            <div class="d-flex justify-content-center p-3"><a
                     href="https://play.google.com/store/apps/details?id=es.buscapk.app"
-                    target="_blank" style="padding: 20px;"><img src="assets/img/stores/play-store.png"
+                    target="_blank" style="padding: 20px;"><img alt="play store" src="assets/img/stores/play-store.png"
                                                                 width="200"></a><a
                     href="https://apps.apple.com/es/app/buscapk/id6502261506" target="_blank"
-                    style="padding: 20px;"><img src="assets/img/stores/app_store.png" width="200"></a></footer>
-            <h3 class="text-info d-lg-flex justify-content-lg-center"></h3>
-            <h4 class="text-info d-lg-flex justify-content-lg-center"></h4>
-        </div>
-    </section>
-    <section class="clean-block about-us">
-        <div class="container">
-            <div class="block-heading">
-                <h2 class="text-info">Acerca de nosotros</h2>
-                <p>BuscaPK es un proyecto personal en el que también colaboran las siguientes personas:</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"
-                                                                  src="assets/img/people/zeldaup.png">
-                        <div class="card-body info">
-                            <h4 class="card-title">Enrique SR Álvarez</h4>
-                            <p class="card-text">Programador Junior</p>
-                            <!--                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i-->
-                            <!--                                    class="icon-social-instagram"></i></a></div>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"
-                                                                  src="assets/img/people/zeldaup.png">
-                        <div class="card-body info">
-                            <h4 class="card-title"><strong>Enrique SR García</strong></h4>
-                            <p class="card-text">Identificó el problema e ideó la solución </p>
-<!--                            <div class="icons"><a href="https://twitter.com/i/communities/1739883885658607808"><i-->
-<!--                                    class="icon-social-twitter"></i></a></div>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"
-                                                                  src="assets/img/people/zeldaup.png">
-                        <div class="card-body info">
-                            <h4 class="card-title">María Álvarez</h4>
-                            <p class="card-text">La que da coherencia y estilo a esta aplicación</p>
-<!--                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i-->
-<!--                                    class="icon-social-instagram"></i></a></div>-->
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"
-                                                                  src="assets/img/people/zeldaup.png">
-                        <div class="card-body info">
-                            <h4 class="card-title">Macarena SR Álvarez</h4>
-                            <p class="card-text">Sus consejos le han dado otro aire al proyecto</p>
-<!--                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i-->
-<!--                                    class="icon-social-instagram"></i></a></div>-->
-                        </div>
-                    </div>
-                </div>
+                    style="padding: 20px;"><img alt="app store" src="assets/img/stores/app_store.png" width="200"></a>
             </div>
         </div>
     </section>
+    <!--    <section class="clean-block about-us">-->
+    <!--        <div class="container">-->
+    <!--            <div class="block-heading">-->
+    <!--                <h2 class="text-info">Acerca de nosotros</h2>-->
+    <!--                <p>BuscaPK es un proyecto personal en el que también colaboran las siguientes personas:</p>-->
+    <!--            </div>-->
+    <!--            <div class="row justify-content-center">-->
+    <!--                <div class="col-sm-6 col-lg-3">-->
+    <!--                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"-->
+    <!--                                                                  src="assets/img/people/zeldaup.png">-->
+    <!--                        <div class="card-body info">-->
+    <!--                            <h4 class="card-title">Enrique SR Álvarez</h4>-->
+    <!--                            <p class="card-text">Programador Junior</p>-->
+    <!--                            &lt;!&ndash;                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i&ndash;&gt;-->
+    <!--                            &lt;!&ndash;                                    class="icon-social-instagram"></i></a></div>&ndash;&gt;-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-sm-6 col-lg-3">-->
+    <!--                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"-->
+    <!--                                                                  src="assets/img/people/zeldaup.png">-->
+    <!--                        <div class="card-body info">-->
+    <!--                            <h4 class="card-title"><strong>Enrique SR García</strong></h4>-->
+    <!--                            <p class="card-text">Identificó el problema e ideó la solución </p>-->
+    <!--&lt;!&ndash;                            <div class="icons"><a href="https://twitter.com/i/communities/1739883885658607808"><i&ndash;&gt;-->
+    <!--&lt;!&ndash;                                    class="icon-social-twitter"></i></a></div>&ndash;&gt;-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-sm-6 col-lg-3">-->
+    <!--                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"-->
+    <!--                                                                  src="assets/img/people/zeldaup.png">-->
+    <!--                        <div class="card-body info">-->
+    <!--                            <h4 class="card-title">María Álvarez</h4>-->
+    <!--                            <p class="card-text">La que da coherencia y estilo a esta aplicación</p>-->
+    <!--&lt;!&ndash;                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i&ndash;&gt;-->
+    <!--&lt;!&ndash;                                    class="icon-social-instagram"></i></a></div>&ndash;&gt;-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-sm-6 col-lg-3">-->
+    <!--                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"-->
+    <!--                                                                  src="assets/img/people/zeldaup.png">-->
+    <!--                        <div class="card-body info">-->
+    <!--                            <h4 class="card-title">Macarena SR Álvarez</h4>-->
+    <!--                            <p class="card-text">Sus consejos le han dado otro aire al proyecto</p>-->
+    <!--&lt;!&ndash;                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i&ndash;&gt;-->
+    <!--&lt;!&ndash;                                    class="icon-social-instagram"></i></a></div>&ndash;&gt;-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
 </main>
 <footer class="page-footer dark">
     <div class="container">
@@ -354,8 +359,7 @@
             <div class="col-sm-3">
                 <h5>Comencemos</h5>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#"></a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="#">Obtén la App</a></li>
                     <li><a href="pricing.html">Precios</a></li>
                 </ul>
@@ -365,24 +369,19 @@
                 <ul>
                     <li></li>
                     <li><a href="contact-us.html">Contacto</a></li>
-<!--                    <li><a href="testimonials.html">Testimonials</a></li>-->
                 </ul>
             </div>
             <div class="col-sm-3">
                 <h5>Soporte</h5>
                 <ul>
                     <li><a href="faq.html">FAQ</a></li>
-<!--                    <li></li>-->
-<!--                    <li>-->
-<!--                        <a href="https://github.com/realityexpander/FredsRoadtripStorytellerWebsite/discussions/1">Forum</a>-->
-<!--                    </li>-->
+
                 </ul>
             </div>
             <div class="col-sm-3">
                 <h5>Legal</h5>
                 <ul>
-                    <li><a href="terms-of-service.html">Terms of Service</a></li>
-                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="privacity.html">Política de Privacidad</a></li>
                 </ul>
             </div>
         </div>
