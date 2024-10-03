@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Inicio - BuscaPK Website</title>
+    <meta property="og:image" content="assets/img/screenshots/screen2-light.png">
+    <meta name="description"
+          content="Localiza los puntos kilométricos de las carreteras de España, Francia y Portugal, para Android e IOS">
+    <meta name="twitter:image" content="assets/img/screenshots/screen1.png">
+    <link rel="icon" href="assets/img/logoold.svg" type="image/svg+xml">
+    <script>
+        (function () {
+
+            // JavaScript snippet handling Dark/Light mode switching
+
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Montserrat.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
+    <link rel="stylesheet" href="assets/css/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg fixed-top bg-body clean-navbar navbar-light">
+    <div class="container"><a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo.png" height="60" alt="BuscaPK Logo">
+    </a>
+        <div class="d-flex align-items-center align-content-center align-items-md-center">
+            <div class="theme-switcher dropdown d-md-flex align-items-md-center" style="padding-right: 11px;"><a
+                    aria-expanded="false" data-bs-toggle="dropdown" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16"
+                     class="bi bi-sun-fill mb-1">
+                    <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                </svg>
+            </a>
+                <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#"
+                                              data-bs-theme-value="light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                         viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
+                        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                    </svg>
+                    Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                         viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
+                        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
+                        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                    </svg>
+                    Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                         viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
+                        <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
+                    </svg>
+                    Auto</a></div>
+            </div>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
+                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="pricing.html">Precios</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://twitter.com/buscapk" target="_blank"><img
+                        alt="twitter" src="assets/img/twitter-x.svg"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main class="page landing-page">
+    <section class="clean-block clean-hero"
+             style="color: rgba(0,45,135,0.8);min-height: 450px;background: url(assets/img/tech/zgz.jpg) center / cover no-repeat;">
+        <div class="text" style="padding-bottom: 36px;">
+            <h1 class="display-5 fw-bold" style="margin: 8px 8px;">Ayúdanos a localizarte identificando tu punto
+                kilométrico más cercano</h1>
+            <p></p>
+            <p>O encuentra de forma rápida y eficaz la ubicación de un punto kilométrico</p>
+            <a href="https://play.google.com/store/apps/details?id=es.buscapk.app"
+               target="_blank" style="padding: 20px;"><img alt="playstore" src="assets/img/stores/play-store.png"
+                                                           width="200"></a>
+            <a href="https://apps.apple.com/es/app/buscapk/id6502261506" target="_blank"
+               style="padding: 20px;"><img alt="app store" src="assets/img/stores/app_store.png" width="200"></a>
+        </div>
+    </section>
+    <section class="clean-block clean-info dark">
+        <div class="container">
+            <div class="block-heading">
+                <p style="padding-bottom: 22px;">Obtén las coordenadas de tu ubicación y la carretera y el
+                    kilómetro más cercano.
+                    <br><br><em>Si trabajas para los servicios de emergencias o en un servicio de asistencia en
+                        carretera, podrás obtener indicaciones precisas para acudir al punto donde se te necesita.</em>
+                </p>
+            </div>
+            <div class="row align-items-start">
+                <div class="col-sm-12 col-md-6 col-lg-5 offset-md-0 offset-lg-0">
+                    <img alt="captura de pantalla" class="w-50" src="assets/img/screenshots/screen15.png"
+                         width="" height="" style="margin-top: 0;"><img alt="captura de pantalla" class="w-50"
+                                                                        src="assets/img/screenshots/screen10.png"
+                                                                        width="" height=""
+                                                                        style="padding-top: 0;margin-top: 0;"></div>
+                <div class="col-md-6 col-lg-6" style="padding-top: 0;">
+                    <h3>Obtén el punto kilométrico más cercano y las coordenadas de tu ubicación</h3>
+                    <div class="getting-started-info">
+                        <p style="margin-bottom: 32px;">Si tienes un accidente o eres testigo de uno esta es la forma
+                            más rápida de informar a los equipos de primera respuesta de tu ubicación.</p>
+                    </div>
+                    <h3 style="padding-top: 0;">Enlaces a las principales aplicaciones de navegación</h3>
+                    <div class="getting-started-info">
+                        <p style="margin-bottom: 32px;">Busca un punto kilométrico y obtén enlaces a las principales
+                            aplicaciones de navegación.</p>
+                    </div>
+                    <h3>Copia las coordenadas geográficas</h3>
+                    <div class="getting-started-info">
+                        <p style="margin-bottom: 32px;">También puedes copiar las coordenadas del punto kilométrico para
+                            utilizarlo en cualquier otra aplicación de navegación.</p>
+                    </div>
+
+                </div>
+
+            </div>
+                       <div class="d-sm-flex d-md-flex justify-content-sm-center justify-content-md-center"><a
+                            href="https://play.google.com/store/apps/details?id=es.buscapk.app"
+                            target="_blank" style="padding: 20px;">
+                        <img alt="play store" src="assets/img/stores/play-store.png"
+                             width="200"></a><a
+                            href="https://apps.apple.com/es/app/buscapk/id6502261506" target="_blank"
+                            style="padding: 20px;"><img alt="app store" src="assets/img/stores/app_store.png"
+                                                        width="200"></a></div>
+        </div>
+    </section>
+    <section class="clean-block features">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info"><a href="features.html">Características</a></h2>
+                <p>Localizador de puntos kilométricos</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
+                    <h4><strong>Sin cuenta de usuario ni anuncios</strong></h4>
+                    <p>No nos gustan los anuncios ni las cuentas de usuarios para recoger datos. Los únicos datos que
+                        recogemos
+                        son datos estadísticos anónimos de Google para detectar y corregir errores.<br><br>No recogemos
+                        &nbsp;<strong><em>ninguna información de usuario</em></strong>. Puedes utilizar la aplicación
+                        sin registrarte.
+                        Las suscripciones se realizan a través de App Store y de Play Store</p>
+                </div>
+                <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
+                    <h4>Orientada a los equipos de primera respuesta</h4>
+                    <p>Esta aplicación ha sido creada para ayudar a los equipos de primera respuesta (ambulancias,
+                        policía, bomberos...),
+                        de forma que puedan localizar de manera rápida y efectiva el lugar donde se necesita su
+                        asitencia.<br><br> En origen surgió
+                        para resolver el problema que se encontraban las tripulaciones de helicópteros sanitarios a la
+                        hora de acudir a una llamada
+                        de socorro en una carretera, de la que solo se tenían el nombre de la carretera y el punto
+                        kilométrico.</p>
+                </div>
+                <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
+                    <h4><strong>Soluciones Personalizadas</strong></h4>
+                    <p>¿Necesitas un servidor web para acceder desde un ordenador? ¿Quieres una app privada para los
+                        dispositivos
+                        de tu empresa o servicio? Contacta con nosotros y cuéntanos tus necesidades.<br><br>Puedes
+                        hacerlo escribiéndo a <a href="mailto:info@buscapk.es">info@buscapk.es</a></p>
+                </div>
+                <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
+                    <h4><strong>Apoyo</strong></h4>
+                    <p>Esta App agradece el esfuerzo y colaboración de los usuarios gracias a los cuales podemos ampliar
+                        y corregir nuestra base de datos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="clean-block slider dark" style="padding-bottom: 30px;">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Capturas</h2>
+                <p>A continuación tienes un ejemplo de lo que vas a encontrar en esta aplicación</p>
+            </div>
+            <div class="carousel slide carousel-dark carousel-fade" data-bs-ride="carousel" id="carousel-1"
+                 data-bs-theme="dark">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div><img class="w-25" src="assets/img/screenshots/screen1.png" alt="Slide Image"><img
+                                class="w-25" src="assets/img/screenshots/screen9.png"
+                                alt="Slide Image"><img class="w-25"
+                                                       src="assets/img/screenshots/screen7.png"
+                                                       alt="Slide Image"><img class="w-25"
+                                                                              src="assets/img/screenshots/screen2.png"
+                                                                              alt="Slide Image"></div>
+                    </div>
+                    <div class="carousel-item">
+                        <div><img class="w-25" src="assets/img/screenshots/screen4.png" alt="Slide Image"><img
+                                class="w-25" src="assets/img/screenshots/screen13.png"
+                                alt="Slide Image"><img class="w-25"
+                                                       src="assets/img/screenshots/screen12.png"
+                                                       alt="Slide Image"><img class="w-25"
+                                                                              src="assets/img/screenshots/screen8.png"
+                                                                              alt="Slide Image"></div>
+                    </div>
+                </div>
+                <div style="padding-top: 63px;"><a class="carousel-control-prev d-xl-flex align-items-end"
+                                                   href="#carousel-1" role="button" data-bs-slide="prev"><span
+                        class="carousel-control-prev-icon" style="filter: brightness(200%) contrast(200%);"></span><span
+                        class="visually-hidden">Previous</span></a><a
+                        class="carousel-control-next d-xl-flex align-items-end" href="#carousel-1" role="button"
+                        data-bs-slide="next"><span class="carousel-control-next-icon"
+                                                   style="filter: brightness(200%) contrast(200%);"></span><span
+                        class="visually-hidden">Next</span></a></div>
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#carousel-1" data-bs-slide-to="1"></button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center p-3"><a
+                    href="https://play.google.com/store/apps/details?id=es.buscapk.app"
+                    target="_blank" style="padding: 20px;"><img alt="play store" src="assets/img/stores/play-store.png"
+                                                                width="200"></a><a
+                    href="https://apps.apple.com/es/app/buscapk/id6502261506" target="_blank"
+                    style="padding: 20px;"><img alt="app store" src="assets/img/stores/app_store.png" width="200"></a>
+            </div>
+        </div>
+    </section>
+    <!--    <section class="clean-block about-us">-->
+    <!--        <div class="container">-->
+    <!--            <div class="block-heading">-->
+    <!--                <h2 class="text-info">Acerca de nosotros</h2>-->
+    <!--                <p>BuscaPK es un proyecto personal en el que también colaboran las siguientes personas:</p>-->
+    <!--            </div>-->
+    <!--            <div class="row justify-content-center">-->
+    <!--                <div class="col-sm-6 col-lg-3">-->
+    <!--                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"-->
+    <!--                                                                  src="assets/img/people/zeldaup.png">-->
+    <!--                        <div class="card-body info">-->
+    <!--                            <h4 class="card-title">Enrique SR Álvarez</h4>-->
+    <!--                            <p class="card-text">Programador Junior</p>-->
+    <!--                            &lt;!&ndash;                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i&ndash;&gt;-->
+    <!--                            &lt;!&ndash;                                    class="icon-social-instagram"></i></a></div>&ndash;&gt;-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-sm-6 col-lg-3">-->
+    <!--                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"-->
+    <!--                                                                  src="assets/img/people/zeldaup.png">-->
+    <!--                        <div class="card-body info">-->
+    <!--                            <h4 class="card-title"><strong>Enrique SR García</strong></h4>-->
+    <!--                            <p class="card-text">Identificó el problema e ideó la solución </p>-->
+    <!--&lt;!&ndash;                            <div class="icons"><a href="https://twitter.com/i/communities/1739883885658607808"><i&ndash;&gt;-->
+    <!--&lt;!&ndash;                                    class="icon-social-twitter"></i></a></div>&ndash;&gt;-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-sm-6 col-lg-3">-->
+    <!--                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"-->
+    <!--                                                                  src="assets/img/people/zeldaup.png">-->
+    <!--                        <div class="card-body info">-->
+    <!--                            <h4 class="card-title">María Álvarez</h4>-->
+    <!--                            <p class="card-text">La que da coherencia y estilo a esta aplicación</p>-->
+    <!--&lt;!&ndash;                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i&ndash;&gt;-->
+    <!--&lt;!&ndash;                                    class="icon-social-instagram"></i></a></div>&ndash;&gt;-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="col-sm-6 col-lg-3">-->
+    <!--                    <div class="card text-center clean-card"><img class="card-img-top w-100 d-block"-->
+    <!--                                                                  src="assets/img/people/zeldaup.png">-->
+    <!--                        <div class="card-body info">-->
+    <!--                            <h4 class="card-title">Macarena SR Álvarez</h4>-->
+    <!--                            <p class="card-text">Sus consejos le han dado otro aire al proyecto</p>-->
+    <!--&lt;!&ndash;                            <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i&ndash;&gt;-->
+    <!--&lt;!&ndash;                                    class="icon-social-instagram"></i></a></div>&ndash;&gt;-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+</main>
+<footer class="page-footer dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>Comencemos</h5>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#">Obtén la App</a></li>
+                    <li><a href="pricing.html">Precios</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Acerca de nosotros</h5>
+                <ul>
+                    <li></li>
+                    <li><a href="contact-us.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Soporte</h5>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="privacity.html">Política de Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>© 2023-2024 Copyright Enrique Reboto</p>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/baguetteBox.min.js"></script>
+<script src="assets/js/vanilla-zoom.js"></script>
+<script src="assets/js/theme.js"></script>
+</body>
+
+</html>
